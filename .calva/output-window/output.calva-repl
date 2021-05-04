@@ -1,0 +1,225 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+c o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Starting Jack-in Terminal: clojure -Sdeps '{:deps {nrepl/nrepl {:mvn/version,"0.8.3"},cider/cider-nrepl {:mvn/version,"0.25.11"}}}'  -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS: 
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉user꞉> 
+; Jack-in done.
+clj꞉user꞉> 
+; Evaluating file: utils.clj
+; Syntax error macroexpanding clojure.core/ns at (src/paste/utils.clj:1:1).
+; ((:require [clojure.string :refer [join] clojure.data.json :as json])) - failed: Extra input spec: :clojure.core.specs.alpha/ns-form
+; Evaluation of file utils.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉user꞉> 
+clj꞉paste.utils꞉> 
+; Evaluating file: utils.clj
+; Syntax error compiling at (src/paste/utils.clj:19:26).
+; No such var: json/read-string
+; Evaluation of file utils.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉paste.utils꞉> 
+clj꞉paste.utils꞉> (require 'clojure.data.json)
+nil
+clj꞉paste.utils꞉> 
+(refer 'clojure.data.json ['read-string])
+; Execution error (IllegalArgumentException) at paste.utils/eval7442 (REPL:37).
+; No value supplied for key: [read-string]
+clj꞉paste.utils꞉> (ns example
+                    (:require [clojure.data.json :as json]))
+nil
+clj꞉example꞉> (json/read-str "[1, 2, 3]")
+[1 2 3]
+clj꞉example꞉> (in-ns paste.utils)
+; Syntax error (ClassNotFoundException) compiling at (.calva/output-window/output.calva-repl:45:15).
+; paste.utils
+clj꞉example꞉> (in-ns 'paste.utils)
+#namespace[paste.utils]
+clj꞉paste.utils꞉> (let [prism-components-json (slurp "https://raw.githubusercontent.com/PrismJS/prism/master/components.json")
+                        prism-components (json/read-string prism-components-json
+                                                           :key-fn keyword)
+                        prism-languages (:languages prism-components)]
+                    (prn prism-languages))
+; Syntax error compiling at (.calva/output-window/output.calva-repl:51:42).
+; No such var: json/read-string
+clj꞉paste.utils꞉> 
+; Evaluating file: utils.clj
+#'paste.utils/process-prism-components
+clj꞉paste.utils꞉> (let [prism-components-json (slurp "https://raw.githubusercontent.com/PrismJS/prism/master/components.json")
+                        prism-components (json/read-str prism-components-json
+                                                           :key-fn keyword)
+                        prism-languages (:languages prism-components)]
+                    (prn prism-languages))
+{:lua {:title "Lua", :owner "Golmote"}, :aspnet {:title "ASP.NET (C#)", :require ["markup" "csharp"], :owner "nauzilus"}, :xeora {:title "Xeora", :require "markup", :alias "xeoracube", :aliasTitles {:xeoracube "XeoraCube"}, :owner "freakmaxi"}, :n1ql {:title "N1QL", :owner "TMWilds"}, :firestore-security-rules {:title "Firestore security rules", :require "clike", :owner "RunDevelopment"}, :inform7 {:title "Inform 7", :owner "Golmote"}, :pug {:title "Pug", :require ["markup" "javascript"], :optional ["coffeescript" "ejs" "handlebars" "less" "livescript" "markdown" "scss" "stylus" "twig"], :owner "Golmote"}, :properties {:title ".properties", :owner "Golmote"}, :vim {:title "vim", :owner "westonganger"}, :mizar {:title "Mizar", :owner "Golmote"}, :jolie {:title "Jolie", :require "clike", :owner "thesave"}, :gml {:title "GameMaker Language", :alias "gamemakerlanguage", :require "clike", :owner "LiarOnce"}, :markdown {:title "Markdown", :require "markup", :optional "yaml", :alias "md", :owner "Golmote"}, :tap {:t
+itle "TAP", :owner "isaacs", :require "yaml"}, :q {:title "Q (kdb+ database)", :owner "Golmote"}, :csp {:title "Content-Security-Policy", :owner "ScottHelme"}, :go {:title "Go", :require "clike", :owner "arnehormann"}, :coffeescript {:title "CoffeeScript", :require "javascript", :alias "coffee", :owner "R-osey"}, :javascript {:title "JavaScript", :require "clike", :modify "markup", :optional "regex", :alias "js", :option "default"}, :smarty {:title "Smarty", :require "markup-templating", :owner "Golmote"}, :yang {:title "YANG", :owner "RunDevelopment"}, :iecst {:title "Structured Text (IEC 61131-3)", :owner "serhioromano"}, :crystal {:title "Crystal", :require "ruby", :owner "MakeNowJust"}, :aql {:title "AQL", :owner "RunDevelopment"}, :scala {:title "Scala", :require "java", :owner "jozic"}, :keyman {:title "Keyman", :owner "mcdurdin"}, :r {:title "R", :owner "Golmote"}, :opencl {:title "OpenCL", :require "c", :modify ["c" "cpp"], :owner "Milania1"}, :csharp {:title "C#", :require "clike", :alias ["cs" "dotn
+et"], :owner "mvalipour"}, :django {:title "Django/Jinja2", :require "markup-templating", :alias "jinja2", :owner "romanvm"}, :io {:title "Io", :owner "AlesTsurko"}, :dax {:title "DAX", :owner "peterbud"}, :actionscript {:title "ActionScript", :require "javascript", :modify "markup", :owner "Golmote"}, :csv {:title "CSV", :owner "RunDevelopment"}, :haskell {:title "Haskell", :alias "hs", :owner "bholst"}, :v {:title "V", :require "clike", :owner "taggon"}, :vbnet {:title "VB.Net", :require "basic", :owner "Bigsby"}, :hpkp {:title "HTTP Public-Key-Pins", :owner "ScottHelme"}, :erb {:title "ERB", :require ["ruby" "markup-templating"], :owner "Golmote"}, :shell-session {:title "Shell session", :require "bash", :alias ["sh-session" "shellsession"], :owner "RunDevelopment"}, :javadoc {:title "JavaDoc", :require ["markup" "java" "javadoclike"], :modify "java", :optional "scala", :owner "RunDevelopment"}, :meta {:path "components/prism-{id}", :noCSS true, :examplesPath "examples/prism-{id}", :addCheckAll true}, :typ
+oscript {:title "TypoScript", :alias "tsconfig", :aliasTitles {:tsconfig "TSConfig"}, :owner "dkern"}, :prolog {:title "Prolog", :owner "Golmote"}, :unrealscript {:title "UnrealScript", :alias ["uscript" "uc"], :owner "RunDevelopment"}, :pascal {:title "Pascal", :alias "objectpascal", :aliasTitles {:objectpascal "Object Pascal"}, :owner "Golmote"}, :jq {:title "JQ", :owner "RunDevelopment"}, :jsonp {:title "JSONP", :require "json", :owner "RunDevelopment"}, :glsl {:title "GLSL", :require "c", :owner "Golmote"}, :markup-templating {:title "Markup templating", :require "markup", :owner "Golmote"}, :lisp {:title "Lisp", :alias ["emacs" "elisp" "emacs-lisp"], :owner "JuanCaicedo"}, :typescript {:title "TypeScript", :require "javascript", :optional "js-templates", :alias "ts", :owner "vkbansal"}, :processing {:title "Processing", :require "clike", :owner "Golmote"}, :bnf {:title "BNF", :alias "rbnf", :aliasTitles {:rbnf "RBNF"}, :owner "RunDevelopment"}, :coq {:title "Coq", :owner "RunDevelopment"}, :purebasic {:t
+itle "PureBasic", :require "clike", :alias "pbfasm", :owner "HeX0R101"}, :pascaligo {:title "Pascaligo", :owner "DefinitelyNotAGoat"}, :editorconfig {:title "EditorConfig", :owner "osipxd"}, :nasm {:title "NASM", :owner "rbmj"}, :smalltalk {:title "Smalltalk", :owner "Golmote"}, :concurnas {:title "Concurnas", :alias "conc", :owner "jasontatton"}, :dns-zone-file {:title "DNS zone file", :owner "RunDevelopment", :alias "dns-zone"}, :gherkin {:title "Gherkin", :owner "hason"}, :cobol {:title "COBOL", :owner "RunDevelopment"}, :clojure {:title "Clojure", :owner "troglotit"}, :birb {:title "Birb", :require "clike", :owner "Calamity210"}, :textile {:title "Textile", :require "markup", :optional "css", :owner "Golmote"}, :xml-doc {:title "XML doc (.net)", :require "markup", :modify ["csharp" "fsharp" "vbnet"], :owner "RunDevelopment"}, :lilypond {:title "LilyPond", :require "scheme", :alias "ly", :owner "RunDevelopment"}, :sparql {:title "SPARQL", :require "turtle", :owner "Triply-Dev", :alias "rq"}, :flow {:title 
+"Flow", :require "javascript", :owner "Golmote"}, :moonscript {:title "MoonScript", :alias "moon", :owner "RunDevelopment"}, :arff {:title "ARFF", :owner "Golmote"}, :wiki {:title "Wiki markup", :require "markup", :owner "Golmote"}, :latex {:title "LaTeX", :alias ["tex" "context"], :aliasTitles {:tex "TeX", :context "ConTeXt"}, :owner "japborst"}, :git {:title "Git", :owner "lgiraudel"}, :mel {:title "MEL", :owner "Golmote"}, :t4-vb {:title "T4 Text Templates (VB)", :require ["t4-templating" "vbnet"], :owner "RunDevelopment"}, :swift {:title "Swift", :require "clike", :owner "chrischares"}, :lolcode {:title "LOLCODE", :owner "Golmote"}, :vhdl {:title "VHDL", :owner "a-rey"}, :phpdoc {:title "PHPDoc", :require ["php" "javadoclike"], :modify "php", :owner "RunDevelopment"}, :docker {:title "Docker", :alias "dockerfile", :owner "JustinBeckwith"}, :sqf {:title "SQF: Status Quo Function (Arma 3)", :require "clike", :owner "RunDevelopment"}, :nand2tetris-hdl {:title "Nand To Tetris HDL", :owner "stephanmax"}, :liqu
+id {:title "Liquid", :owner "cinhtau"}, :haxe {:title "Haxe", :require "clike", :owner "Golmote"}, :tsx {:title "React TSX", :require ["jsx" "typescript"]}, :matlab {:title "MATLAB", :owner "Golmote"}, :bash {:title "Bash", :alias "shell", :aliasTitles {:shell "Shell"}, :owner "zeitgeist87"}, :css {:title "CSS", :option "default", :modify "markup"}, :brainfuck {:title "Brainfuck", :owner "Golmote"}, :puppet {:title "Puppet", :owner "Golmote"}, :plsql {:title "PL/SQL", :require "sql", :owner "Golmote"}, :zig {:title "Zig", :owner "RunDevelopment"}, :livescript {:title "LiveScript", :owner "Golmote"}, :scss {:title "Sass (Scss)", :require "css", :optional "css-extras", :owner "MoOx"}, :visual-basic {:title "Visual Basic", :alias ["vb" "vba"], :aliasTitles {:vba "VBA"}, :owner "Golmote"}, :julia {:title "Julia", :owner "cdagnino"}, :json5 {:title "JSON5", :require "json", :owner "RunDevelopment"}, :gedcom {:title "GEDCOM", :owner "Golmote"}, :clike {:title "C-like", :option "default"}, :ada {:title "Ada", :owner
+ "Lucretia"}, :autohotkey {:title "AutoHotkey", :owner "aviaryan"}, :purescript {:title "PureScript", :require "haskell", :alias "purs", :owner "sriharshachilakapati"}, :makefile {:title "Makefile", :owner "Golmote"}, :false {:title "False", :owner "edukisto"}, :icon {:title "Icon", :owner "Golmote"}, :ichigojam {:title "IchigoJam", :owner "BlueCocoa"}, :autoit {:title "AutoIt", :owner "Golmote"}, :nevod {:title "Nevod", :owner "nezaboodka"}, :qsharp {:title "Q#", :require "clike", :alias "qs", :owner "fedonman"}, :renpy {:title "Ren'py", :alias "rpy", :owner "HyuchiaDiego"}, :t4-cs {:title "T4 Text Templates (C#)", :require ["t4-templating" "csharp"], :alias "t4", :owner "RunDevelopment"}, :stylus {:title "Stylus", :owner "vkbansal"}, :psl {:title "PATROL Scripting Language", :owner "bertysentry"}, :ignore {:title ".ignore", :owner "osipxd", :alias ["gitignore" "hgignore" "npmignore"], :aliasTitles {:gitignore ".gitignore", :hgignore ".hgignore", :npmignore ".npmignore"}}, :mongodb {:title "MongoDB", :owner 
+"airs0urce", :require "javascript"}, :yaml {:title "YAML", :alias "yml", :owner "hason"}, :idris {:title "Idris", :alias "idr", :owner "KeenS", :require "haskell"}, :vala {:title "Vala", :require "clike", :optional "regex", :owner "TemplarVolk"}, :batch {:title "Batch", :owner "Golmote"}, :asciidoc {:alias "adoc", :title "AsciiDoc", :owner "Golmote"}, :gcode {:title "G-code", :owner "RunDevelopment"}, :toml {:title "TOML", :owner "RunDevelopment"}, :nginx {:title "nginx", :owner "volado"}, :markup {:title "Markup", :alias ["html" "xml" "svg" "mathml" "ssml" "atom" "rss"], :aliasTitles {:html "HTML", :xml "XML", :svg "SVG", :mathml "MathML", :ssml "SSML", :atom "Atom", :rss "RSS"}, :option "default"}, :latte {:title "Latte", :require ["clike" "markup-templating" "php"], :owner "nette"}, :sass {:title "Sass (Sass)", :require "css", :owner "Golmote"}, :antlr4 {:title "ANTLR4", :alias "g4", :owner "RunDevelopment"}, :reason {:title "Reason", :require "clike", :owner "Golmote"}, :ebnf {:title "EBNF", :owner "RunDe
+velopment"}, :java {:title "Java", :require "clike", :owner "sherblot"}, :c {:title "C", :require "clike", :owner "zeitgeist87"}, :twig {:title "Twig", :require "markup", :owner "brandonkelly"}, :solidity {:title "Solidity (Ethereum)", :alias "sol", :require "clike", :owner "glachaud"}, :bro {:title "Bro", :owner "wayward710"}, :parser {:title "Parser", :require "markup", :owner "Golmote"}, :less {:title "Less", :require "css", :optional "css-extras", :owner "Golmote"}, :elixir {:title "Elixir", :owner "Golmote"}, :ini {:title "Ini", :owner "aviaryan"}, :sql {:title "SQL", :owner "multipetros"}, :js-templates {:title "JS Templates", :require "javascript", :modify "javascript", :optional ["css" "css-extras" "graphql" "markdown" "markup"], :owner "RunDevelopment"}, :j {:title "J", :owner "Golmote"}, :protobuf {:title "Protocol Buffers", :require "clike", :owner "just-boris"}, :icu-message-format {:title "ICU Message Format", :owner "RunDevelopment"}, :asm6502 {:title "6502 Assembly", :owner "kzurawel"}, :xquery
+ {:title "XQuery", :require "markup", :owner "Golmote"}, :al {:title "AL", :owner "RunDevelopment"}, :sml {:title "SML", :alias "smlnj", :aliasTitles {:smlnj "SML/NJ"}, :owner "RunDevelopment"}, :powerquery {:title "PowerQuery", :alias ["pq" "mscript"], :owner "peterbud"}, :sas {:title "SAS", :optional ["groovy" "lua" "sql"], :owner "Golmote"}, :jsstacktrace {:title "JS stack trace", :owner "sbrl"}, :xojo {:title "Xojo (REALbasic)", :owner "Golmote"}, :bison {:title "Bison", :require "c", :owner "Golmote"}, :factor {:title "Factor", :owner "catb0t"}, :etlua {:title "Embedded Lua templating", :require ["lua" "markup-templating"], :owner "RunDevelopment"}, :fsharp {:title "F#", :require "clike", :owner "simonreynolds7"}, :warpscript {:title "WarpScript", :owner "RunDevelopment"}, :qml {:title "QML", :require "javascript", :owner "RunDevelopment"}, :soy {:title "Soy (Closure Template)", :require "markup-templating", :owner "Golmote"}, :cypher {:title "Cypher", :owner "RunDevelopment"}, :naniscript {:title "Nanin
+ovel Script", :owner "Elringus", :alias "nani"}, :hcl {:title "HCL", :owner "outsideris"}, :applescript {:title "AppleScript", :owner "Golmote"}, :nsis {:title "NSIS", :owner "idleberg"}, :ejs {:title "EJS", :require ["javascript" "markup-templating"], :owner "RunDevelopment", :alias "eta", :aliasTitles {:eta "Eta"}}, :n4js {:title "N4JS", :require "javascript", :optional "jsdoc", :alias "n4jsd", :owner "bsmith-n4"}, :excel-formula {:title "Excel Formula", :alias ["xlsx" "xls"], :owner "RunDevelopment"}, :objectivec {:title "Objective-C", :require "c", :alias "objc", :owner "uranusjr"}, :gdscript {:title "GDScript", :owner "RunDevelopment"}, :js-extras {:title "JS Extras", :require "javascript", :modify "javascript", :optional ["actionscript" "coffeescript" "flow" "n4js" "typescript"], :owner "RunDevelopment"}, :chaiscript {:title "ChaiScript", :require ["clike" "cpp"], :owner "RunDevelopment"}, :eiffel {:title "Eiffel", :owner "Conaclos"}, :handlebars {:title "Handlebars", :require "markup-templating", :alia
+s "hbs", :owner "Golmote"}, :openqasm {:title "OpenQasm", :alias "qasm", :owner "RunDevelopment"}, :jexl {:title "Jexl", :owner "czosel"}, :cfscript {:title "CFScript", :require "clike", :alias "cfc", :owner "mjclemente"}, :nix {:title "Nix", :owner "Golmote"}, :python {:title "Python", :alias "py", :owner "multipetros"}, :neon {:title "NEON", :owner "nette"}, :arduino {:title "Arduino", :require "cpp", :owner "dkern"}, :http {:title "HTTP", :optional ["css" "javascript" "json" "markup" "uri"], :owner "danielgtaylor"}, :stan {:title "Stan", :owner "RunDevelopment"}, :brightscript {:title "BrightScript", :owner "RunDevelopment"}, :smali {:title "Smali", :owner "RunDevelopment"}, :hsts {:title "HTTP Strict-Transport-Security", :owner "ScottHelme"}, :basic {:title "BASIC", :owner "Golmote"}, :abap {:title "ABAP", :owner "dellagustin"}, :d {:title "D", :require "clike", :owner "Golmote"}, :css-extras {:title "CSS Extras", :require "css", :modify "css", :owner "milesj"}, :apl {:title "APL", :owner "ngn"}, :solutio
+n-file {:title "Solution file", :alias "sln", :owner "RunDevelopment"}, :ftl {:title "FreeMarker Template Language", :require "markup-templating", :owner "RunDevelopment"}, :graphql {:title "GraphQL", :optional "markdown", :owner "Golmote"}, :regex {:title "Regex", :owner "RunDevelopment"}, :php {:title "PHP", :require "markup-templating", :owner "milesj"}, :pcaxis {:title "PC-Axis", :alias "px", :owner "RunDevelopment"}, :powershell {:title "PowerShell", :owner "nauzilus"}, :apacheconf {:title "Apache Configuration", :owner "GuiTeK"}, :kumir {:title "KuMir (КуМир)", :alias "kum", :owner "edukisto"}, :llvm {:title "LLVM IR", :owner "porglezomp"}, :rip {:title "Rip", :owner "ravinggenius"}, :qore {:title "Qore", :require "clike", :owner "temnroegg"}, :uri {:title "URI", :alias "url", :aliasTitles {:url "URL"}, :owner "RunDevelopment"}, :perl {:title "Perl", :owner "Golmote"}, :dot {:title "DOT (Graphviz)", :alias "gv", :optional "markup", :owner "RunDevelopment"}, :cpp {:title "C++", :require "c", :owner "zeit
+geist87"}, :json {:title "JSON", :alias "webmanifest", :aliasTitles {:webmanifest "Web App Manifest"}, :owner "CupOfTea696"}, :rust {:title "Rust", :owner "Golmote"}, :jsx {:title "React JSX", :require ["markup" "javascript"], :optional ["jsdoc" "js-extras" "js-templates"], :owner "vkbansal"}, :turtle {:title "Turtle", :alias "trig", :aliasTitles {:trig "TriG"}, :owner "jakubklimek"}, :pure {:title "Pure", :optional ["c" "cpp" "fortran"], :owner "Golmote"}, :tcl {:title "Tcl", :owner "PeterChaplin"}, :oz {:title "Oz", :owner "Golmote"}, :erlang {:title "Erlang", :owner "Golmote"}, :cmake {:title "CMake", :owner "mjrogozinski"}, :bbcode {:title "BBcode", :alias "shortcode", :aliasTitles {:shortcode "Shortcode"}, :owner "RunDevelopment"}, :peoplecode {:title "PeopleCode", :alias "pcode", :owner "RunDevelopment"}, :nim {:title "Nim", :owner "Golmote"}, :monkey {:title "Monkey", :owner "Golmote"}, :agda {:title "Agda", :owner "xy-ren"}, :abnf {:title "ABNF", :owner "RunDevelopment"}, :javadoclike {:title "JavaDoc
+-like", :modify ["java" "javascript" "php"], :owner "RunDevelopment"}, :parigp {:title "PARI/GP", :owner "Golmote"}, :bsl {:title "BSL (1C:Enterprise)", :alias "oscript", :aliasTitles {:oscript "OneScript"}, :owner "Diversus23"}, :racket {:title "Racket", :require "scheme", :alias "rkt", :owner "RunDevelopment"}, :jsdoc {:title "JSDoc", :require ["javascript" "javadoclike" "typescript"], :modify "javascript", :optional ["actionscript" "coffeescript"], :owner "RunDevelopment"}, :log {:title "Log file", :owner "RunDevelopment"}, :tt2 {:title "Template Toolkit 2", :require ["clike" "markup-templating"], :owner "gflohr"}, :velocity {:title "Velocity", :require "markup", :owner "Golmote"}, :verilog {:title "Verilog", :owner "a-rey"}, :kotlin {:title "Kotlin", :alias ["kt" "kts"], :aliasTitles {:kts "Kotlin Script"}, :require "clike", :owner "Golmote"}, :javastacktrace {:title "Java stack trace", :owner "RunDevelopment"}, :promql {:title "PromQL", :owner "arendjr"}, :ruby {:title "Ruby", :require "clike", :alias "r
+b", :owner "samflores"}, :apex {:title "Apex", :require ["clike" "sql"], :owner "RunDevelopment"}, :hlsl {:title "HLSL", :require "c", :owner "RunDevelopment"}, :haml {:title "Haml", :require "ruby", :optional ["css" "css-extras" "coffeescript" "erb" "javascript" "less" "markdown" "scss" "textile"], :owner "Golmote"}, :fortran {:title "Fortran", :owner "Golmote"}, :scheme {:title "Scheme", :owner "bacchus123"}, :splunk-spl {:title "Splunk SPL", :owner "RunDevelopment"}, :php-extras {:title "PHP Extras", :require "php", :modify "php", :owner "milesj"}, :rest {:title "reST (reStructuredText)", :owner "Golmote"}, :robotframework {:title "Robot Framework", :alias "robot", :owner "RunDevelopment"}, :groovy {:title "Groovy", :require "clike", :owner "robfletcher"}, :wasm {:title "WebAssembly", :owner "Golmote"}, :cil {:title "CIL", :owner "sbrl"}, :ocaml {:title "OCaml", :owner "Golmote"}, :dart {:title "Dart", :require "clike", :owner "Golmote"}, :roboconf {:title "Roboconf", :owner "Golmote"}, :squirrel {:title "
+Squirrel", :require "clike", :owner "RunDevelopment"}, :rego {:title "Rego", :owner "JordanSh"}, :dataweave {:title "DataWeave", :owner "machaval"}, :t4-templating {:title "T4 templating", :owner "RunDevelopment"}, :elm {:title "Elm", :owner "zwilias"}, :dhall {:title "Dhall", :owner "RunDevelopment"}, :diff {:title "Diff", :owner "uranusjr"}}
+nil
+clj꞉paste.utils꞉> 
+(doc mapcat)
+; Syntax error compiling at (.calva/output-window/output.calva-repl:85:1).
+; Unable to resolve symbol: doc in this context
+clj꞉paste.utils꞉> 
+; Evaluating file: utils.clj
+#'paste.utils/process-prism-components
+clj꞉paste.utils꞉> 
+(process-prism-components)
+; Error printing return value (IllegalArgumentException) at clojure.lang.RT/seqFrom (RT.java:557).
+; Don't know how to create ISeq from: clojure.lang.Keyword
+clj꞉paste.utils꞉> 
+; Evaluating file: utils.clj
+#'paste.utils/process-prism-components
+clj꞉paste.utils꞉> 
+(process-prism-components)
+(:lua :aspnet :xeora \x \e \o \r \a \c \u \b \e :n1ql :firestore-security-rules :inform7 :pug :properties :vim :mizar :jolie :gml \g \a \m \e \m \a \k \e \r \l \a \n \g \u \a \g \e :markdown \m \d :tap :q :csp :go :coffeescript \c \o \f \f \e \e :javascript \j \s :smarty :yang :iecst :crystal :aql :scala :keyman :r :opencl :csharp "cs" "dotnet" :django \j \i \n \j \a \2 :io :dax :actionscript :csv :haskell \h \s :v :vbnet :hpkp :erb :shell-session "sh-session" "shellsession" :javadoc :meta :typoscript \t \s \c \o \n \f \i \g :prolog :unrealscript "uscript" "uc" :pascal \o \b \j \e \c \t \p \a \s \c \a \l :jq :jsonp :glsl :markup-templating :lisp "emacs" "elisp" "emacs-lisp" :typescript \t \s :processing :bnf \r \b \n \f :coq :purebasic \p \b \f \a \s \m :pascaligo :editorconfig :nasm :smalltalk :concurnas \c \o \n \c :dns-zone-file \d \n \s \- \z \o \n \e :gherkin :cobol :clojure :birb :textile :xml-doc :lilypond \l \y :sparql \r \q :flow :moonscript \m \o \o \n :arff :wiki :latex "tex" "context" :git :mel :t4-vb :swift :lolcode :vhdl :phpdoc :docker \d \o \c \k \e \r \f \i \l \e :sqf :nand2tetris-hdl :liquid :haxe :tsx :matlab :bash \s \h \e \l \l :css :brainfuck :puppet :plsql :zig :livescript :scss :visual-basic "vb" "vba" :julia :json5 :gedcom :clike :ada :autohotkey :purescript \p \u \r \s :makefile :false :icon :ichigojam :autoit :nevod :qsharp \q \s :renpy \r \p \y :t4-cs \t \4 :stylus :psl :ignore "gitignore" "hgignore" "npmignore" :mongodb :yaml \y \m \l :idris \i \d \r :vala :batch :asciidoc \a \d \o \c :gcode :toml :nginx :markup "html" "xml" "svg" "mathml" "ssml" "atom" "rss" :latte :sass :antlr4 \g \4 :reason :ebnf :java :c :twig :solidity \s \o \l :bro :parser :less :elixir :ini :sql :js-templates :j :protobuf :icu-message-format :asm6502 :xquery :al :sml \s \m \l \n \j :powerquery "pq" "mscript" :sas :jsstacktrace :xojo :bison :factor :etlua :fsharp :warpscript :qml :soy :cypher :naniscript \n \a \n \i :hcl :applescript :nsis :ejs \e \t \a :n4js \n \4 \j \s \d :excel-formula "xlsx" "xls" :objectivec \o \b \j \c :gdscript :js-extras :chaiscript :eiffel :handlebars \h \b \s :openqasm \q \a \s \m :jexl :cfscript \c \f \c :nix :python \p \y :neon :arduino :http :stan :brightscript :smali :hsts :basic :abap :d :css-extras :apl :solution-file \s \l \n :ftl :graphql :regex :php :pcaxis \p \x :powershell :apacheconf :kumir \k \u \m :llvm :rip :qore :uri \u \r \l :perl :dot \g \v :cpp :json \w \e \b \m \a \n \i \f \e \s \t :rust :jsx :turtle \t \r \i \g :pure :tcl :oz :erlang :cmake :bbcode \s \h \o \r \t \c \o \d \e :peoplecode \p \c \o \d \e :nim :monkey :agda :abnf :javadoclike :parigp :bsl \o \s \c \r \i \p \t :racket \r \k \t :jsdoc :log :tt2 :velocity :verilog :kotlin "kt" "kts" :javastacktrace :promql :ruby \r \b :apex :hlsl :haml :fortran :scheme :splunk-spl :php-extras :rest :robotframework \r \o \b \o \t :groovy :wasm :cil :ocaml :dart :roboconf :squirrel :rego :dataweave :t4-templating :elm :dhall :diff)
+clj꞉paste.utils꞉> 
+; Evaluating file: utils.clj
+#'paste.utils/process-prism-components
+clj꞉paste.utils꞉> (process-prism-components)
+(":lua" ":aspnet" ":xeora" "xeoracube" ":n1ql" ":firestore-security-rules" ":inform7" ":pug" ":properties" ":vim" ":mizar" ":jolie" ":gml" "gamemakerlanguage" ":markdown" "md" ":tap" ":q" ":csp" ":go" ":coffeescript" "coffee" ":javascript" "js" ":smarty" ":yang" ":iecst" ":crystal" ":aql" ":scala" ":keyman" ":r" ":opencl" ":csharp" "cs" "dotnet" ":django" "jinja2" ":io" ":dax" ":actionscript" ":csv" ":haskell" "hs" ":v" ":vbnet" ":hpkp" ":erb" ":shell-session" "sh-session" "shellsession" ":javadoc" ":meta" ":typoscript" "tsconfig" ":prolog" ":unrealscript" "uscript" "uc" ":pascal" "objectpascal" ":jq" ":jsonp" ":glsl" ":markup-templating" ":lisp" "emacs" "elisp" "emacs-lisp" ":typescript" "ts" ":processing" ":bnf" "rbnf" ":coq" ":purebasic" "pbfasm" ":pascaligo" ":editorconfig" ":nasm" ":smalltalk" ":concurnas" "conc" ":dns-zone-file" "dns-zone" ":gherkin" ":cobol" ":clojure" ":birb" ":textile" ":xml-doc" ":lilypond" "ly" ":sparql" "rq" ":flow" ":moonscript" "moon" ":arff" ":wiki" ":latex" "tex" "context" ":git" ":mel" ":t4-vb" ":swift" ":lolcode" ":vhdl" ":phpdoc" ":docker" "dockerfile" ":sqf" ":nand2tetris-hdl" ":liquid" ":haxe" ":tsx" ":matlab" ":bash" "shell" ":css" ":brainfuck" ":puppet" ":plsql" ":zig" ":livescript" ":scss" ":visual-basic" "vb" "vba" ":julia" ":json5" ":gedcom" ":clike" ":ada" ":autohotkey" ":purescript" "purs" ":makefile" ":false" ":icon" ":ichigojam" ":autoit" ":nevod" ":qsharp" "qs" ":renpy" "rpy" ":t4-cs" "t4" ":stylus" ":psl" ":ignore" "gitignore" "hgignore" "npmignore" ":mongodb" ":yaml" "yml" ":idris" "idr" ":vala" ":batch" ":asciidoc" "adoc" ":gcode" ":toml" ":nginx" ":markup" "html" "xml" "svg" "mathml" "ssml" "atom" "rss" ":latte" ":sass" ":antlr4" "g4" ":reason" ":ebnf" ":java" ":c" ":twig" ":solidity" "sol" ":bro" ":parser" ":less" ":elixir" ":ini" ":sql" ":js-templates" ":j" ":protobuf" ":icu-message-format" ":asm6502" ":xquery" ":al" ":sml" "smlnj" ":powerquery" "pq" "mscript" ":sas" ":jsstacktrace" ":xojo" ":bison" ":factor" ":etlua" ":fsharp" ":warpscript" ":qml" ":soy" ":cypher" ":naniscript" "nani" ":hcl" ":applescript" ":nsis" ":ejs" "eta" ":n4js" "n4jsd" ":excel-formula" "xlsx" "xls" ":objectivec" "objc" ":gdscript" ":js-extras" ":chaiscript" ":eiffel" ":handlebars" "hbs" ":openqasm" "qasm" ":jexl" ":cfscript" "cfc" ":nix" ":python" "py" ":neon" ":arduino" ":http" ":stan" ":brightscript" ":smali" ":hsts" ":basic" ":abap" ":d" ":css-extras" ":apl" ":solution-file" "sln" ":ftl" ":graphql" ":regex" ":php" ":pcaxis" "px" ":powershell" ":apacheconf" ":kumir" "kum" ":llvm" ":rip" ":qore" ":uri" "url" ":perl" ":dot" "gv" ":cpp" ":json" "webmanifest" ":rust" ":jsx" ":turtle" "trig" ":pure" ":tcl" ":oz" ":erlang" ":cmake" ":bbcode" "shortcode" ":peoplecode" "pcode" ":nim" ":monkey" ":agda" ":abnf" ":javadoclike" ":parigp" ":bsl" "oscript" ":racket" "rkt" ":jsdoc" ":log" ":tt2" ":velocity" ":verilog" ":kotlin" "kt" "kts" ":javastacktrace" ":promql" ":ruby" "rb" ":apex" ":hlsl" ":haml" ":fortran" ":scheme" ":splunk-spl" ":php-extras" ":rest" ":robotframework" "robot" ":groovy" ":wasm" ":cil" ":ocaml" ":dart" ":roboconf" ":squirrel" ":rego" ":dataweave" ":t4-templating" ":elm" ":dhall" ":diff")
+clj꞉paste.utils꞉> 
+; Evaluating file: utils.clj
+#'paste.utils/process-prism-components
+clj꞉paste.utils꞉> (process-prism-components)
+("lua" "aspnet" "xeora" "xeoracube" "n1ql" "firestore-security-rules" "inform7" "pug" "properties" "vim" "mizar" "jolie" "gml" "gamemakerlanguage" "markdown" "md" "tap" "q" "csp" "go" "coffeescript" "coffee" "javascript" "js" "smarty" "yang" "iecst" "crystal" "aql" "scala" "keyman" "r" "opencl" "csharp" "cs" "dotnet" "django" "jinja2" "io" "dax" "actionscript" "csv" "haskell" "hs" "v" "vbnet" "hpkp" "erb" "shell-session" "sh-session" "shellsession" "javadoc" "meta" "typoscript" "tsconfig" "prolog" "unrealscript" "uscript" "uc" "pascal" "objectpascal" "jq" "jsonp" "glsl" "markup-templating" "lisp" "emacs" "elisp" "emacs-lisp" "typescript" "ts" "processing" "bnf" "rbnf" "coq" "purebasic" "pbfasm" "pascaligo" "editorconfig" "nasm" "smalltalk" "concurnas" "conc" "dns-zone-file" "dns-zone" "gherkin" "cobol" "clojure" "birb" "textile" "xml-doc" "lilypond" "ly" "sparql" "rq" "flow" "moonscript" "moon" "arff" "wiki" "latex" "tex" "context" "git" "mel" "t4-vb" "swift" "lolcode" "vhdl" "phpdoc" "docker" "dockerfile" "sqf" "nand2tetris-hdl" "liquid" "haxe" "tsx" "matlab" "bash" "shell" "css" "brainfuck" "puppet" "plsql" "zig" "livescript" "scss" "visual-basic" "vb" "vba" "julia" "json5" "gedcom" "clike" "ada" "autohotkey" "purescript" "purs" "makefile" "false" "icon" "ichigojam" "autoit" "nevod" "qsharp" "qs" "renpy" "rpy" "t4-cs" "t4" "stylus" "psl" "ignore" "gitignore" "hgignore" "npmignore" "mongodb" "yaml" "yml" "idris" "idr" "vala" "batch" "asciidoc" "adoc" "gcode" "toml" "nginx" "markup" "html" "xml" "svg" "mathml" "ssml" "atom" "rss" "latte" "sass" "antlr4" "g4" "reason" "ebnf" "java" "c" "twig" "solidity" "sol" "bro" "parser" "less" "elixir" "ini" "sql" "js-templates" "j" "protobuf" "icu-message-format" "asm6502" "xquery" "al" "sml" "smlnj" "powerquery" "pq" "mscript" "sas" "jsstacktrace" "xojo" "bison" "factor" "etlua" "fsharp" "warpscript" "qml" "soy" "cypher" "naniscript" "nani" "hcl" "applescript" "nsis" "ejs" "eta" "n4js" "n4jsd" "excel-formula" "xlsx" "xls" "objectivec" "objc" "gdscript" "js-extras" "chaiscript" "eiffel" "handlebars" "hbs" "openqasm" "qasm" "jexl" "cfscript" "cfc" "nix" "python" "py" "neon" "arduino" "http" "stan" "brightscript" "smali" "hsts" "basic" "abap" "d" "css-extras" "apl" "solution-file" "sln" "ftl" "graphql" "regex" "php" "pcaxis" "px" "powershell" "apacheconf" "kumir" "kum" "llvm" "rip" "qore" "uri" "url" "perl" "dot" "gv" "cpp" "json" "webmanifest" "rust" "jsx" "turtle" "trig" "pure" "tcl" "oz" "erlang" "cmake" "bbcode" "shortcode" "peoplecode" "pcode" "nim" "monkey" "agda" "abnf" "javadoclike" "parigp" "bsl" "oscript" "racket" "rkt" "jsdoc" "log" "tt2" "velocity" "verilog" "kotlin" "kt" "kts" "javastacktrace" "promql" "ruby" "rb" "apex" "hlsl" "haml" "fortran" "scheme" "splunk-spl" "php-extras" "rest" "robotframework" "robot" "groovy" "wasm" "cil" "ocaml" "dart" "roboconf" "squirrel" "rego" "dataweave" "t4-templating" "elm" "dhall" "diff")
+clj꞉paste.utils꞉> 
+; Evaluating file: html.clj
+; Syntax error compiling at (paste/routes.clj:10:11).
+; No such var: handle/index
+; Evaluation of file html.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉paste.utils꞉> 
+clj꞉paste.html꞉> 
+; Evaluating file: core.clj
+; Syntax error macroexpanding clojure.core/ns at (src/paste/core.clj:1:1).
+; () - failed: Insufficient input at: [:ns-clauses :require :body :libspec :lib+opts :options] spec: :clojure.core.specs.alpha/libspec
+:refer - failed: simple-symbol? at: [:ns-clauses :require :body :prefix-list :libspecs :lib] spec: :clojure.core.specs.alpha/libspec
+:refer - failed: (or (nil? %) (sequential? %)) at: [:ns-clauses :require :body :prefix-list :libspecs :lib+opts] spec: :clojure.core.specs.alpha/libspec
+[paste.routes :refer [app] :reload-all] - failed: simple-symbol? at: [:ns-clauses :require :body :libspec :lib] spec: :clojure.core.specs.alpha/libspec
+[paste.routes :refer [app] :reload-all] - failed: #{:verbose :reload :reload-all} at: [:ns-clauses :require :body :flag] spec: :clojure.core.specs.alpha/ns-require
+:require - failed: #{:refer-clojure} at: [:ns-clauses :refer-clojure :clause] spec: :clojure.core.specs.alpha/ns-refer-clojure
+:require - failed: #{:import} at: [:ns-clauses :import :clause] spec: :clojure.core.specs
+; .alpha/ns-import
+; :require - failed: #{:use} at: [:ns-clauses :use :clause] spec: :clojure.core.specs.alpha/ns-use
+:require - failed: #{:refer} at: [:ns-clauses :refer :clause] spec: :clojure.core.specs.alpha/ns-refer
+:require - failed: #{:load} at: [:ns-clauses :load :clause] spec: :clojure.core.specs.alpha/ns-load
+:require - failed: #{:gen-class} at: [:ns-clauses :gen-class :clause] spec: :clojure.core.specs.alpha/ns-gen-class
+; Evaluation of file core.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉paste.html꞉> 
+clj꞉paste.core꞉> (require '[clojure.tools.namespace.repl :refer [refresh]])
+; Execution error (FileNotFoundException) at paste.core/eval11217 (REPL:136).
+; Could not locate clojure/tools/namespace/repl__init.class, clojure/tools/namespace/repl.clj or clojure/tools/namespace/repl.cljc on classpath.
+clj꞉paste.core꞉> 
+; Evaluating file: html.clj
+; Syntax error compiling at (src/paste/html.clj:1:1).
+; No namespace: paste.routes
+; Evaluation of file html.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉paste.core꞉> 
+clj꞉paste.html꞉> 
+; Evaluating file: handler.clj
+; Syntax error compiling at (src/paste/handler.clj:12:10).
+; No such var: html/index
+; Evaluation of file handler.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉paste.html꞉> 
+clj꞉paste.handler꞉> 
+; Evaluating file: core.clj
+; Syntax error compiling at (src/paste/core.clj:1:1).
+; No namespace: paste.routes
+; Evaluation of file core.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉paste.handler꞉> 
+clj꞉paste.core꞉> 
+; Syntax error compiling at (src/paste/core.clj:19:3).
+; Unable to resolve symbol: stop-server in this context
+clj꞉paste.core꞉> 
+; Evaluating file: html.clj
+; Syntax error (IllegalAccessError) compiling at (src/paste/html.clj:1:1).
+; prism-languages does not exist
+; Evaluation of file html.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉paste.core꞉> 
+clj꞉paste.html꞉> 
+; Evaluating file: handler.clj
+; Syntax error compiling at (src/paste/handler.clj:12:10).
+; No such var: html/index
+; Evaluation of file handler.clj failed: class clojure.lang.Compiler$CompilerException
+
+clj꞉paste.html꞉> 
+clj꞉paste.handler꞉> 
+; Evaluating file: routes.clj
+#'paste.routes/app
+clj꞉paste.routes꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉paste.core꞉> 
+nil
+clj꞉paste.core꞉> 
+Server at port 8080
+#function[clojure.lang.AFunction/1]
+clj꞉paste.core꞉> 
+; Evaluating file: utils.clj
+#'paste.utils/languages
+clj꞉paste.utils꞉> 
+; Evaluating file: html.clj
+#'paste.html/index
+clj꞉paste.html꞉> 
+; Evaluating file: handler.clj
+#'paste.handler/index
+clj꞉paste.handler꞉> 
+; Evaluating file: routes.clj
+#'paste.routes/app
+clj꞉paste.routes꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉paste.core꞉> 
+nil
+clj꞉paste.core꞉> 
+Server at port 8080
+#function[clojure.lang.AFunction/1]
+clj꞉paste.core꞉> 
+; Evaluating file: html.clj
+#'paste.html/index
+clj꞉paste.html꞉> 
+; Evaluating file: handler.clj
+#'paste.handler/index
+clj꞉paste.handler꞉> 
+; Evaluating file: routes.clj
+#'paste.routes/app
+clj꞉paste.routes꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉paste.core꞉> 
+nil
+clj꞉paste.core꞉> 
+Server at port 8080
+#function[clojure.lang.AFunction/1]
+clj꞉paste.core꞉> 

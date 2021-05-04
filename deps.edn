@@ -1,0 +1,27 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.2"}
+        org.clojure/data.json {:mvn/version "2.2.2"}
+        http-kit/http-kit {:mvn/version "2.5.3"}
+        metosin/reitit {:mvn/version "0.5.13"}
+        hiccup/hiccup {:mvn/version "1.0.5"}
+        com.taoensso/timbre {:mvn/version "5.1.2"}
+        clojure-term-colors/clojure-term-colors {:mvn/version "0.1.0"}}
+ :aliases
+ {:run {:main-opts ["-m" "paste.core"]}
+;;   :run-x {:ns-default paste.core
+;;           :exec-fn greet
+;;           :exec-args {:name "Clojure"}}
+;;   :test {:extra-paths ["test"]
+;;          :extra-deps {org.clojure/test.check {:mvn/version "1.1.0"}}}
+;;   :runner
+;;   {:extra-deps {com.cognitect/test-runner
+;;                 {:git/url "https://github.com/cognitect-labs/test-runner"
+;;                  :sha "b6b3193fcc42659d7e46ecd1884a228993441182"}}
+;;    :main-opts ["-m" "cognitect.test-runner"
+;;                "-d" "test"]}
+  :uberjar {:replace-deps {seancorfield/depstar {:mvn/version "2.0.171"}}
+            :exec-fn hf.depstar/uberjar
+            :exec-args {:aot true
+                        :jar "paste.jar"
+                        :main-class "paste.core"
+                        :sync-pom true}}}}
