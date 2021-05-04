@@ -1,7 +1,9 @@
 (ns paste.core
   (:gen-class)
   (:require [org.httpkit.server :refer [run-server]]
-            [paste.routes :refer [app]]))
+            [paste.routes :refer [app]]
+            [paste.utils :refer [paste-dir]]
+            [clojure.java.io :as io]))
 
 (defonce server (atom nil))
 
@@ -11,6 +13,7 @@
     (reset! server nil)))
 
 (defn -main []
+  (.mkdir (io/file paste-dir))
   (println "Server at port 8080")
   (reset! server (run-server app {:port 8080})))
 
@@ -18,3 +21,4 @@
   @server
   (stop-server)
   (-main))
+
