@@ -1,14 +1,20 @@
 (ns paste.handler
   (:require [paste.html :as html]
-            [paste.utils :refer [create-key paste-dir join-paths]])
+            [paste.utils :refer [create-key paste-dir join-paths]]
+            [clojure.string :as string])
   (:import [java.io FileNotFoundException]))
 
 (defn new-paste-handler
   [req]
   (let [syntax (get (:headers req) "x-syntax")
-        content (:body req)
+        content (-> req
+                    :body
+                    slurp
+                                        (string/replace "&" "&amp;")
+                    (string/replace "<" "&lt;")
+                    (string/replace ">" "&gt;"))
         key (create-key)]
-    (spit (join-paths paste-dir key) (slurp content))
+    (spit (join-paths paste-dir key) content)
     (spit (join-paths paste-dir (str key ".syntax")) syntax)
     {:status 200
      :body key}))

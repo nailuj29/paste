@@ -1,17 +1,17 @@
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    display: flex;
-    justify-content: center;
+    margin: auto;
+    width: 600px;
 }
 
 * {
     margin: 0;
     padding: 0;
-  }
+}
 
-pre {
-    min-width: 100vw;
-    height: 100vh;
+h1 {
+    font-size: 30pt;
+    margin-bottom: 10px;
 }
 
 label {
@@ -21,4 +21,8 @@ label {
 
 textarea, input {
     display: block;
+}
+
+input[type="submit"] {
+    margin-top: 5px;
 }

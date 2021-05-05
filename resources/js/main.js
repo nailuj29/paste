@@ -12,5 +12,5 @@ form.addEventListener('submit', async e => {
         body: content
     });
     const text = await response.text();
-    console.log(text);
+    window.location.href = `${window.location.origin}/${text}`
 })

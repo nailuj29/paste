@@ -326,3 +326,108 @@ clj꞉paste.core꞉> 
 Server at port 8080
 #function[clojure.lang.AFunction/1]
 clj꞉paste.core꞉> 
+; Syntax error compiling at (src/paste/html.clj:21:32).
+; Unable to resolve symbol: language in this context
+clj꞉paste.html꞉> 
+; Evaluating file: html.clj
+#'paste.html/index
+clj꞉paste.html꞉> 
+; Evaluating file: handler.clj
+#'paste.handler/index
+clj꞉paste.handler꞉> 
+; Evaluating file: routes.clj
+#'paste.routes/app
+clj꞉paste.routes꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉paste.core꞉> 
+nil
+clj꞉paste.core꞉> 
+Server at port 8080
+#function[clojure.lang.AFunction/1]
+clj꞉paste.core꞉> 
+; Evaluating file: handler.clj
+#'paste.handler/index
+clj꞉paste.handler꞉> 
+; Evaluating file: routes.clj
+#'paste.routes/app
+clj꞉paste.routes꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉paste.core꞉> 
+nil
+clj꞉paste.core꞉> 
+Server at port 8080
+#function[clojure.lang.AFunction/1]
+clj꞉paste.core꞉> 
+; Evaluating file: handler.clj
+#'paste.handler/index
+clj꞉paste.handler꞉> 
+; Evaluating file: routes.clj
+#'paste.routes/app
+clj꞉paste.routes꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉paste.core꞉> 
+; Evaluating file: handler.clj
+#'paste.handler/index
+clj꞉paste.handler꞉> 
+; Evaluating file: routes.clj
+#'paste.routes/app
+clj꞉paste.routes꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉paste.core꞉> 
+nil
+clj꞉paste.core꞉> 
+Server at port 8080
+#function[clojure.lang.AFunction/1]
+clj꞉paste.core꞉> 
+; Evaluating file: handler.clj
+#'paste.handler/index
+clj꞉paste.handler꞉> 
+; Evaluating file: routes.clj
+#'paste.routes/app
+clj꞉paste.routes꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉paste.core꞉> 
+nil
+clj꞉paste.core꞉> 
+Server at port 8080
+#function[clojure.lang.AFunction/1]
+clj꞉paste.core꞉> 
+; Evaluating file: handler.clj
+#'paste.handler/index
+clj꞉paste.handler꞉> 
+; Evaluating file: routes.clj
+#'paste.routes/app
+clj꞉paste.routes꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉paste.core꞉> 
+nil
+clj꞉paste.core꞉> 
+Server at port 8080
+#function[clojure.lang.AFunction/1]
+clj꞉paste.core꞉> 
+; Evaluating file: handler.clj
+#'paste.handler/index
+clj꞉paste.handler꞉> 
+; Evaluating file: routes.clj
+#'paste.routes/app
+clj꞉paste.routes꞉> 
+; Evaluating file: handler.clj
+#'paste.handler/index
+clj꞉paste.handler꞉> 
+; Evaluating file: routes.clj
+#'paste.routes/app
+clj꞉paste.routes꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉paste.core꞉> 
+nil
+clj꞉paste.core꞉> 
+Server at port 8080
+#function[clojure.lang.AFunction/1]
+clj꞉paste.core꞉> 
