@@ -10,3 +10,4 @@
 /.nrepl-port
 .hgignore
 .hg/
+.calva/
