@@ -10,7 +10,7 @@
         content (-> req
                     :body
                     slurp
-                                        (string/replace "&" "&amp;")
+                    (string/replace "&" "&amp;")
                     (string/replace "<" "&lt;")
                     (string/replace ">" "&gt;"))
         key (create-key)]
@@ -25,6 +25,17 @@
     (try
       {:status 200
        :body (html/paste (slurp base-path) (slurp (str base-path ".syntax")))}
+      (catch FileNotFoundException _
+        {:status 404
+         :body "Paste not found"}))))
+
+(defn raw
+  [req]
+  (let [base-path (join-paths paste-dir (:id (:path-params req)))]
+    (try
+      {:status 200
+       :headers {"Content-Type" "text/plain; charset=utf8"}
+       :body (slurp base-path)}
       (catch FileNotFoundException _
         {:status 404
          :body "Paste not found"}))))

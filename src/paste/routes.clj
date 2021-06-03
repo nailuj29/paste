@@ -11,7 +11,8 @@
                         ["/pastes" {:post {:handler handle/new-paste-handler}}]
                         ["/js/*" {:get {:handler (ring/create-resource-handler {:root "js"})}}]
                         ["/css/*" {:get {:handler (ring/create-resource-handler {:root "css"})}}]
-                        ["/:id" {:get {:handler handle/paste} :conflicting true}]]
+                        ["/:id" {:get {:handler handle/paste}}]
+                        ["/raw/:id" {:get {:handler handle/raw}}]]
                   
                        {:data {:muuntaja m/instance
                                :middleware [format-request-middleware
