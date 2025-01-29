@@ -11,3 +11,4 @@
 .hgignore
 .hg/
 .calva/
+.clj-kondo/
