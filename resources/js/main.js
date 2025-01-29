@@ -12,5 +12,9 @@ form.addEventListener('submit', async e => {
         body: content
     });
     const text = await response.text();
-    window.location.href = `${window.location.origin}/${text}`
+    if (await response.status != 200) {
+        document.body.textContent = "Paste data too large. Refresh page to try again";
+    } else {
+        window.location.href = `${window.location.origin}/${text}`
+    }
 })

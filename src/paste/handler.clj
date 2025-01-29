@@ -14,10 +14,13 @@
                     (string/replace "<" "&lt;")
                     (string/replace ">" "&gt;"))
         key (create-key)]
-    (spit (join-paths paste-dir key) content)
-    (spit (join-paths paste-dir (str key ".syntax")) syntax)
-    {:status 200
-     :body key}))
+    (if (< (count content) 5000)
+      (do (spit (join-paths paste-dir key) content)
+          (spit (join-paths paste-dir (str key ".syntax")) syntax)
+          {:status 200
+           :body key})
+      {:status 413
+       :body "Data too large"})))
 
 (defn paste
   [req]
